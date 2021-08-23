@@ -1,0 +1,18 @@
+.Comment {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: snow;
+    border: 1px solid aliceblue;
+}
+
+.Comment-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.Comment-user {
+    font-weight: bold;
+}

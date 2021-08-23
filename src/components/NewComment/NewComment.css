@@ -1,0 +1,18 @@
+.NewComment {
+   display: flex;
+}
+
+.NewComment-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.NewComment-send-btn {
+    margin-left: 10px;
+    color: midnightblue;
+    background: none;
+    border: none;
+    font-size: 18px;
+}

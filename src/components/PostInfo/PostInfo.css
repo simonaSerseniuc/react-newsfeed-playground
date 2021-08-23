@@ -1,0 +1,16 @@
+.PostInfo-image {
+    display: block;
+    margin: 10px auto;
+    max-width: 500px;
+}
+
+.PostInfo-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.PostInfo-user {
+    font-weight: bold;
+}
