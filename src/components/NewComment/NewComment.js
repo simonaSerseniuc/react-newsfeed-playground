@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewComment.css';
 
-function NewComment({ text, onChange, send }) {
+function NewComment({ send }) {
+    const [text, setText] = useState('');
+
+    const handleChange = ({ target }) => {
+        setText(target.value);
+    };
+
+    const handleOnClick = () => {
+        send(text);
+        setText('');
+    }
+
     return (
         <div className="NewComment">
             <input className="NewComment-input"
                 placeholder="Tell me something"
-                value={text} onChange={onChange}
+                value={text} onChange={handleChange}
             />
             <button className="NewComment-send-btn"
-                onClick={() => send(text)}
+                onClick={handleOnClick}
             >
                 <i className="fas fa-paper-plane"></i>
             </button>
@@ -19,8 +30,6 @@ function NewComment({ text, onChange, send }) {
 }
 
 NewComment.propTypes = {
-    value: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
     send: PropTypes.func.isRequired
 };
 

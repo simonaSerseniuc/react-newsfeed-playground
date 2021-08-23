@@ -16,7 +16,6 @@ export default class Post extends Component {
             user: getUserById(post.user),
             loaded: 5,
             showComments: false,
-            newCommentText: '',
             post
         };
     }
@@ -42,7 +41,6 @@ export default class Post extends Component {
         addPostCommentLS(id, text);
         this.setState({
             ...this.state,
-            newCommentText: '',
             post: {
                 ...post,
                 comments: [
@@ -57,15 +55,8 @@ export default class Post extends Component {
         });
     };
 
-    handleInputChange = (event) => {
-        this.setState({
-            ...this.state,
-            newCommentText: event.target.value
-        });
-    };
-
     render () {
-        const { post, user, loaded, showComments, newCommentText } = this.state;
+        const { post, user, loaded, showComments } = this.state;
 
         return (
             <div className="Post">
@@ -107,9 +98,7 @@ export default class Post extends Component {
                     : null
                 }
                 <NewComment
-                    send={() => this.sendComment(newCommentText)}
-                    text={newCommentText}
-                    onChange={this.handleInputChange}
+                    send={this.sendComment}
                 />
             </div>
         );
