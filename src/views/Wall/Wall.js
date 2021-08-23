@@ -1,35 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getPostsLS } from '../../resources/posts.js';
 import Post from '../Post/Post.js';
 import './Wall.css';
 
-export default class Wall extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: []
-        };
-    }
+export default function Wall() {
+    const [posts, setPosts] = useState([]);
 
-    componentDidMount() {
-        const posts = getPostsLS();
-        this.setState({
-            ...this.state,
-            posts,
-        })
-    }
+    useEffect(() => {
+        const newPosts = getPostsLS();
+        setPosts(prevPosts => [...newPosts]);
+    }, []);
 
-    render () {
-        const { posts = {} } = this.state;
-
-        return (
-            <div className="Wall">
-                {posts.map(post =>
-                    <Post key={post.id} id={post.id}/>
-                )}
-            </div>
-        );
-    }
+    return (
+        <div className="Wall">
+            {posts.map(post =>
+                <Post key={post.id} id={post.id}/>
+            )}
+        </div>
+    );
 }
 
 
