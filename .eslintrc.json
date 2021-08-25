@@ -1,0 +1,30 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "camelcase": 1,
+        "no-param-reassign": 1,
+        "no-var": 1,
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+        "no-multi-spaces": ["error"],
+        "react/no-deprecated": 1,
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4]
+    }
+}

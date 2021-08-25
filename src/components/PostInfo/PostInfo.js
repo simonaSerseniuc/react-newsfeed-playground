@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import './PostInfo.css';
 import { getLocaleDate } from '../../utils/utils.js';

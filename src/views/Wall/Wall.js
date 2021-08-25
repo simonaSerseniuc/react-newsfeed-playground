@@ -8,7 +8,7 @@ export default function Wall() {
 
     useEffect(() => {
         const newPosts = getPostsLS();
-        setPosts(prevPosts => [...newPosts]);
+        setPosts([...newPosts]);
     }, []);
 
     return (
@@ -19,5 +19,3 @@ export default function Wall() {
         </div>
     );
 }
-
-
