@@ -1,47 +1,7 @@
 import stars from './stars.jpeg';
 import trafic from './trafic.jpeg';
-import { findIndex } from 'lodash';
 
-export const getPostsLS = () => {
-    const posts = JSON.parse(localStorage.getItem('feedPosts'));
-
-    if (!posts) {
-        localStorage.setItem('feedPosts', JSON.stringify(feedPosts));
-        return feedPosts;
-    }
-
-    return posts;
-};
-
-export const getPostById = (id) => {
-    const feedPosts = JSON.parse(localStorage.getItem('feedPosts'));
-    return feedPosts[findIndex(feedPosts, { id: id })];
-};
-
-export const addPostCommentLS = (postId, text) => {
-    const feedPosts = JSON.parse(localStorage.getItem('feedPosts'));
-    const postIdx = findIndex(feedPosts, { id: postId });
-
-    const posts = [
-        ...feedPosts.slice(0, postIdx),
-        {
-            ...feedPosts[postIdx],
-            comments: [
-                ...feedPosts[postIdx].comments,
-                {
-                    date: new Date(),
-                    user: 'anonymous',
-                    text,
-                }
-            ]
-        },
-        ...feedPosts.slice(postIdx + 1),
-    ];
-
-    localStorage.setItem('feedPosts', JSON.stringify(posts));
-}
-
-const feedPosts = [
+export const feedPosts = [
     {
         id: '2149ti10qfgead',
         text: 'What an amazing galaxy!',

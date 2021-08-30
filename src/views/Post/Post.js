@@ -5,13 +5,13 @@ import PostInfo from '../../components/PostInfo/PostInfo.js';
 import Comment from '../../components/Comment/Comment.js';
 import NewComment from '../../components/NewComment/NewComment.js';
 import { getUserById } from '../../utils/utils.js';
-import { addPostCommentLS, getPostById } from '../../resources/posts.js';
+import postUtils from '../../utils/postUtils.js';
 import './Post.css';
 
 export default class Post extends Component {
     constructor(props) {
         super(props);
-        const post = getPostById(props.id);
+        const post = postUtils.getPostById(props.id);
         this.state = {
             user: getUserById(post.user),
             loaded: 5,
@@ -41,7 +41,7 @@ export default class Post extends Component {
         const { post, recentComments } = this.state;
         const order = recentComments ? 'desc' : 'asc';
 
-        addPostCommentLS(id, text);
+        postUtils.addPostCommentLS(id, text);
 
         const comments = [
             ...post.comments || [],

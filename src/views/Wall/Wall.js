@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getPostsLS } from '../../resources/posts.js';
+// import { getPostsLS } from '../../resources/posts.js';
+import postUtils from '../../utils/postUtils.js';
 import Post from '../Post/Post.js';
 import './Wall.css';
 
@@ -7,7 +8,7 @@ export default function Wall() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        const newPosts = getPostsLS();
+        const newPosts = postUtils.getPostsLS();
         setPosts([...newPosts]);
     }, []);
 
