@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    justify-content: space-between;
 }
 
 .Post-comments-header i {
@@ -18,13 +19,21 @@
     color: grey;
 }
 
-.Post-more-btn {
+.Post-comments-toggle {
+    cursor: pointer;
+}
+
+.Post-btn {
     background: none;
     border: none;
     font-size: 14px;
-    padding: 10px;
+    cursor: pointer;
 }
 
 .Post-more-btn i {
     color: grey;
+}
+
+.Post-btn-more {
+    padding: 10px;
 }
