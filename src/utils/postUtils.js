@@ -14,7 +14,8 @@ const getPostsLS = () => {
 
 const getPostById = (id) => {
     const feedPosts = JSON.parse(localStorage.getItem('feedPosts'));
-    return feedPosts[findIndex(feedPosts, { id: id })];
+    const idx = findIndex(feedPosts, { id: id });
+    return idx > -1 ? feedPosts[idx] : null;
 };
 
 const addPostCommentLS = (postId, text) => {

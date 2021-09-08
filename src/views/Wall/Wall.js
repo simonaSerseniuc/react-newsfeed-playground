@@ -13,7 +13,7 @@ export default function Wall() {
     }, []);
 
     return (
-        <div className="Wall">
+        <div className="Wall" data-testid="feed-wall">
             {posts.map(post =>
                 <Post key={post.id} id={post.id}/>
             )}

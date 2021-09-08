@@ -11,7 +11,7 @@ import './Post.css';
 export default class Post extends Component {
     constructor(props) {
         super(props);
-        const post = postUtils.getPostById(props.id);
+        const post = postUtils.getPostById(props.id) || {};
         this.state = {
             user: getUserById(post.user),
             loaded: 5,
@@ -83,13 +83,14 @@ export default class Post extends Component {
         const sortText = recentComments ? 'Most recent' : 'All comments';
 
         return (
-            <div className="Post">
+            <div className="Post" data-testid="feed-post">
                 <PostInfo
                     postInfo={post}
-                    user={user}
+                    user={user || {}}
+                    data-testid="feed-post-info"
                 />
 
-                <div className="Post-comments-header">
+                <div className="Post-comments-header" data-testid="feed-post-header">
                     <div className="Post-comments-toggle" onClick={this.toggleComments}>
                         Comments
                         { showComments ?

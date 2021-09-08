@@ -7,10 +7,22 @@ function Comment({ comment }) {
     return (
         <div className="Comment">
             <div className="Comment-header">
-                <span className="Comment-user">{comment.user}</span>
-                <span className="Comment-date">{getLocaleDateTime(comment.date)}</span>
+                <span className="Comment-user"
+                    data-testid="feed-comment-user"
+                >
+                    {comment.user}
+                </span>
+                <span className="Comment-date"
+                    data-testid="feed-comment-date"
+                >
+                    {getLocaleDateTime(comment.date)}
+                </span>
             </div>
-            <div className="Comment-text">{comment.text}</div>
+            <div className="Comment-text"
+                data-testid="feed-comment-text"
+            >
+                {comment.text}
+            </div>
         </div>
     );
 }
